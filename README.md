@@ -106,7 +106,7 @@ Tip: Press Enter inside a form to trigger calculation.
 ## 📷 Screenshots (optional)
 
 Add screenshots or GIFs here for a quick visual preview:
-- /screenshots/bmi.png
+- ![image](https://github.com/MdSaifAli063/Body-Metrics-Calculator/blob/c74b3cd3aff95bdac4e843269bd0e642c9f132f9/Screenshot%202025-09-10%20005456.png)
 - /screenshots/bmr.png
 
 ## 🌐 Deployment
