@@ -1,0 +1,665 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+:root {
+    --bg-gradient: radial-gradient(1200px 500px at 10% 10%, #1f3158 0%, transparent 60%), radial-gradient(900px 500px at 90% 0%, #2a6f97 0%, transparent 60%), linear-gradient(180deg, #0e1626 0%, #0a0f1a 100%);
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-strong: rgba(255, 255, 255, 0.12);
+    --surface-hover: rgba(255, 255, 255, 0.08);
+    --text: #e8eef8;
+    --muted: #a9b4c7;
+    --accent: #4cc9f0;
+    --accent-2: #f72585;
+    --success: #48e59b;
+    --warning: #ffd166;
+    --danger: #ef476f;
+
+    --light: #6aa9ff;
+    --ideal: #48e59b;
+    --heavy: #ffd166;
+    --fat: #ef476f;
+
+    --card-radius: 16px;
+    --control-radius: 12px;
+    --ring-color: rgba(76, 201, 240, 0.35);
+    --ring: 0 0 0 0.18rem var(--ring-color);
+
+    --container-max: 1100px;
+    --space-1: 6px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 18px;
+    --space-5: 24px;
+    --space-6: 32px;
+}
+
+/* Reset and base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    color: var(--text);
+    background: var(--bg-gradient) fixed;
+    background-color: #0a0f1a;
+    line-height: 1.5;
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 15, 26, 0.72);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--surface-strong);
+    padding: 14px 20px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .18);
+}
+
+/* Layout */
+.main {
+    width: min(var(--container-max), 94%);
+    margin: var(--space-6) auto 48px;
+    display: grid;
+    gap: var(--space-5);
+}
+
+/* Pills / Tabs */
+.nav-pills {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--surface-strong);
+    border-radius: 14px;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nav-pills .nav-item {
+    flex: 1 1 180px;
+}
+
+.nav-pills .nav-link {
+    width: 100%;
+    border-radius: 12px;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: color .2s ease, background .2s ease, box-shadow .2s ease, transform .12s ease;
+    text-align: center;
+    padding: 10px 14px;
+    outline: none;
+}
+
+.nav-pills .nav-link:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-pills .nav-link:focus-visible {
+    box-shadow: var(--ring);
+}
+
+.nav-pills .nav-link.active {
+    color: #0b1020;
+    background: linear-gradient(180deg, #4cc9f0, #4895ef);
+    box-shadow: 0 6px 20px rgba(72, 149, 239, .35);
+    transform: translateY(-1px);
+}
+
+/* Section intro */
+.intro-container {
+    margin: 20px 0 12px;
+}
+
+.title {
+    font-weight: 800;
+    font-size: clamp(22px, 2.2vw, 36px);
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.content {
+    color: var(--muted);
+}
+
+/* Card-like surfaces */
+.bmi-form form,
+.bmi-result-content,
+.bmr-content,
+.bmr-intro-list .d-flex,
+.bmi-record-container,
+.bmi-record-list ul {
+    background: var(--surface);
+    border: 1px solid var(--surface-strong);
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .03);
+}
+
+.bmi-form form,
+.bmi-result-content,
+.bmr-content,
+.bmi-record-container {
+    transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.bmi-form form:hover,
+.bmi-result-content:hover,
+.bmr-content:hover,
+.bmi-record-container:hover {
+    background: var(--surface-hover);
+}
+
+/* BMI Form */
+.bmi-form form {
+    padding: 20px;
+}
+
+.bmi-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2);
+}
+
+.bmi-logo {
+    width: clamp(110px, 18vw, 150px);
+    height: auto;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, .35));
+}
+
+.form-label {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.input-group .form-control,
+.input-group .input-group-text {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.input-group .form-control {
+    border-radius: var(--control-radius);
+    min-height: 42px;
+}
+
+.input-group .input-group-text {
+    border-radius: var(--control-radius);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.input-group .form-control::placeholder {
+    color: #98a5bb;
+}
+
+.input-group .form-control:focus {
+    border-color: rgba(76, 201, 240, 0.6);
+    box-shadow: var(--ring);
+    outline: none;
+}
+
+/* Validation state */
+.form-control.is-invalid {
+    border-color: var(--danger) !important;
+    box-shadow: 0 0 0 0.18rem rgba(239, 71, 111, 0.2);
+}
+
+/* Buttons */
+.btn-bmi {
+    --btn-bg: linear-gradient(180deg, #6ee7f3, #4895ef);
+    background: var(--btn-bg);
+    color: #061120;
+    font-weight: 800;
+    letter-spacing: .04em;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 24px rgba(72, 149, 239, .35);
+    transform: translateY(0);
+    transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+    outline: none;
+}
+
+.btn-bmi:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(72, 149, 239, .45);
+}
+
+.btn-bmi:focus-visible {
+    box-shadow: 0 16px 30px rgba(72, 149, 239, .45), var(--ring);
+}
+
+.btn-bmi:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(72, 149, 239, .35);
+}
+
+/* Result blocks */
+.bmi-result-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* center cards horizontally */
+    align-items: flex-start;
+    gap: 18px;
+    padding: 8px 6px;
+}
+
+.bmi-result-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 220px;
+    max-width: 380px;
+    /* constrain card width */
+    width: 100%;
+    padding: 18px;
+    box-sizing: border-box;
+}
+
+.bmi-result-content .result-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 10px;
+}
+
+.value-text {
+    margin: 0;
+    font-size: clamp(28px, 6vw, 56px);
+    /* emphasize main number */
+}
+
+.result-text {
+    margin-top: 8px;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+/* Status colors for BMI content */
+.bmi-result-content.light {
+    border-left-color: var(--light);
+    box-shadow: inset 6px 0 0 rgba(106, 169, 255, .12);
+}
+
+.bmi-result-content.ideal {
+    border-left-color: var(--ideal);
+    box-shadow: inset 6px 0 0 rgba(72, 229, 155, .12);
+}
+
+.bmi-result-content.heavy {
+    border-left-color: var(--heavy);
+    box-shadow: inset 6px 0 0 rgba(255, 209, 102, .12);
+}
+
+.bmi-result-content.fat {
+    border-left-color: var(--fat);
+    box-shadow: inset 6px 0 0 rgba(239, 71, 111, .12);
+}
+
+/* BMI ranges detail */
+.bmi-result-detail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bmi-result-detail ul {
+    width: 100%;
+    max-width: 820px;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.bmi-result-detail li {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 6px solid transparent;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    transition: transform .15s ease, background .15s ease, box-shadow .2s ease;
+}
+
+.bmi-result-detail li:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+.bmi-result-detail li .title {
+    font-size: 14px;
+    opacity: 0.95;
+    margin-bottom: 6px;
+}
+
+.bmi-result-detail li.light {
+    border-left-color: var(--light);
+}
+
+.bmi-result-detail li.ideal {
+    border-left-color: var(--ideal);
+}
+
+.bmi-result-detail li.heavy {
+    border-left-color: var(--heavy);
+}
+
+.bmi-result-detail li.fat {
+    border-left-color: var(--fat);
+}
+
+/* BMR content */
+.bmr-content {
+    padding: 18px;
+}
+
+.bmr-content .result-value {
+    padding: 16px;
+}
+
+.btn-group label.btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+.btn-group label.btn img {
+    width: 28px;
+    height: 28px;
+}
+
+.btn-group .btn-check:checked+label.btn {
+    background: linear-gradient(180deg, #6ee7f3, #4895ef);
+    color: #061120;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(72, 149, 239, .35);
+}
+
+.bmr-intro-list .d-flex {
+    padding: 16px;
+    gap: 10px;
+    border-radius: 14px;
+}
+
+.bmr-intro-list .intro-icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.bmr-intro-list .intro-content {
+    color: var(--muted);
+}
+
+/* BMI Records */
+.bmi-record-container {
+    padding: 16px;
+}
+
+.bmi-record-container .intro-container {
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.clearBMI-btn {
+    border-radius: 999px;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+    padding: 6px 10px;
+}
+
+.clearBMI-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text);
+}
+
+.clearBMI-btn:focus-visible {
+    box-shadow: var(--ring);
+}
+
+.bmi-record-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 12px;
+}
+
+/* Record items layout */
+.bmi-record-list li {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    gap: 10px 16px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 6px solid transparent;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    transition: transform .15s ease, background .15s ease, box-shadow .2s ease;
+}
+
+.bmi-record-list li:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+/* Category badge as first column */
+.bmi-record-list li>span:first-child {
+    justify-self: start;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bmi-record-list li.light>span:first-child {
+    color: #d9e6ff;
+    background: rgba(106, 169, 255, .14);
+    border-color: rgba(106, 169, 255, .28);
+}
+
+.bmi-record-list li.ideal>span:first-child {
+    color: #dcffe9;
+    background: rgba(72, 229, 155, .14);
+    border-color: rgba(72, 229, 155, .28);
+}
+
+.bmi-record-list li.heavy>span:first-child {
+    color: #fff4d0;
+    background: rgba(255, 209, 102, .14);
+    border-color: rgba(255, 209, 102, .28);
+}
+
+.bmi-record-list li.fat>span:first-child {
+    color: #ffd6e0;
+    background: rgba(239, 71, 111, .14);
+    border-color: rgba(239, 71, 111, .28);
+}
+
+.bmi-record-list li.light {
+    border-left-color: var(--light);
+}
+
+.bmi-record-list li.ideal {
+    border-left-color: var(--ideal);
+}
+
+.bmi-record-list li.heavy {
+    border-left-color: var(--heavy);
+}
+
+.bmi-record-list li.fat {
+    border-left-color: var(--fat);
+}
+
+.bmi-record-list .record-date {
+    color: var(--muted);
+    font-size: 14px;
+    justify-self: end;
+    white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+    padding: 16px;
+    border-top: 1px solid var(--surface-strong);
+    background: rgba(10, 15, 26, 0.5);
+    backdrop-filter: blur(6px);
+}
+
+/* Utility and animations */
+.pulse {
+    animation: pulse .6s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.98);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .bmi-logo {
+        width: 100px;
+    }
+
+    .bmi-record-list li {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bmi-record-list .record-date {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-top: 4px;
+    }
+
+    .nav-pills {
+        gap: 8px;
+    }
+
+    .bmi-result-container {
+        gap: 12px;
+    }
+
+    .bmi-result-content {
+        max-width: 100%;
+        min-width: 0;
+        padding: 14px;
+    }
+
+    .value-text {
+        font-size: 34px;
+    }
+
+    .bmi-result-detail ul {
+        padding: 0 8px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+    .bmi-record-list li {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        gap: var(--space-6);
+    }
+
+    .bmr-intro-list .row>[class*="col-"] {
+        margin-bottom: 18px;
+    }
+}
+
+@media (min-width: 992px) {
+    .bmi-logo {
+        width: 150px;
+    }
+
+    .bmi-result-container {
+        justify-content: center;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Print */
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .header,
+    .footer {
+        display: none !important;
+    }
+
+    .btn,
+    .nav,
+    .intro-icon img {
+        display: none !important;
+    }
+
+    .bmi-result-detail li,
+    .bmi-record-list li {
+        box-shadow: none !important;
+        background: #fff !important;
+        border-color: #000 !important;
+    }
+}

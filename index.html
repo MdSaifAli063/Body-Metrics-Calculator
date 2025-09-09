@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header"> <span>CALCULATE YOUR BODY VALUE</span></header>
+<div class="main">
+  <ul class="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-bmi-tab" data-bs-toggle="pill" data-bs-target="#pills-bmi" type="button" role="tab" aria-controls="pills-bmi" aria-selected="true">BMI</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-bmr-tab" data-bs-toggle="pill" data-bs-target="#pills-bmr" type="button" role="tab" aria-controls="pills-bmr" aria-selected="false">BMR</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-bmi" role="tabpanel" aria-labelledby="pills-bmi-tab">
+      <section class="intro-container">
+        <h1 class="title">Body Mass Index (BMI) Calculator</h1>
+        <div class="content">The World Health Organization recommends using Body Mass Index (BMI) to assess obesity.</div>
+      </section>
+      <section class="bmi-form">
+        <form action="" name="bmiForm" class="row">
+          <div class="col-12 col-sm-3 bmi-img mb-4 mb-sm-0">
+             <img src="https://upload.cc/i1/2021/12/14/Gl0CgP.png" alt="" class="bmi-logo">
+          </div>
+          <div class="col-12 col-sm-9 row gx-0 gx-sm-4">
+            <div class="mb-3 col">
+              <label for="cmInput" class="form-label">Height</label>
+              <div class="input-group ">
+                <input type="number" name="realheight"  class="form-control" id="cmInput" placeholder="170" >
+                <span class="input-group-text">CM</span>
+              </div>
+            </div>
+            <div class="mb-3 col">
+              <label for="kgInput" class="form-label">Weight</label>
+              <div class="input-group ">
+                <input type="number" name="realweight" class="form-control" id="kgInput" placeholder="70" >
+                <span class="input-group-text">KG</span>
+              </div>            
+            </div> 
+            <div class="text-center">
+              <button type="" class="btn btn-bmi my-3" id="calculateBmiBtn">Calculate Now</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="bmi-result-container row">
+        <div class="col-12 col-sm-5 bmi-result-content ideal">
+          <div class="result-value">
+            <div class="text-center">
+              <div class="value-text" id="yourBmi">---</div>
+              <div>BMI</div>              
+            </div>
+          </div>
+          <div class="result-text" id="evaluationMessage"> Result </div>
+        </div>
+        <div class="col-12 col-sm-7 bmi-result-detail mt-5 mt-sm-0">
+          <ul>
+            <li class="light">
+              <div class="light title">BMI < 18.5</div>
+              <div>Underweight. Eat a balanced diet and exercise more to build strength and maintain health!</div>
+            </li>
+            <li class="ideal">
+              <div class="ideal title">18.5 ≦ BMI < 24</div>
+              <div>Normal weight. Congratulations! Keep it up!</div>
+            </li>
+            <li class="heavy">
+              <div class="heavy title">24 ≦ BMI < 27</div>
+              <div>Overweight. Be careful and start practicing healthy weight management!</div>
+            </li>
+            <li class="fat">
+              <div class="fat title">BMI ≧ 27</div>
+              <div>Obese. You should immediately start healthy weight management!</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="bmi-record-container">
+        <section class="intro-container d-flex">
+          <h1 class="title">BMI Records</h1>
+          <button class="clearBMI-btn btn btn-outline-info btn-sm ms-auto d-none">Clear Records</button>
+        </section>
+        <section class="bmi-record-list">
+          <ul>
+            <!-- <li class="light row row-cols-2 row-cols-sm-4">             
+              <span class="col">Normal weight</span>
+              <span class="col">BMI 20.9</span>
+              <span class="col">Height 180 cm</span>
+              <span class="col">Weight 70 kg</span>
+              <span class="record-date">2021.12.15</span>
+            </li> -->
+          </ul>
+        </section>
+      </section>
+    </div>
+    <div class="tab-pane fade" id="pills-bmr" role="tabpanel" aria-labelledby="pills-bmr-tab">
+       <section class="intro-container">
+        <h1 class="title">Basal Metabolic Rate (BMR) Calculator</h1>
+        <div class="content">BMR refers to the minimum energy your body expends while awake and completely at rest (e.g., lying still), unaffected by mental stress, muscle activity, food, or ambient temperature. <span class="text-light">BMR tends to decrease with age or weight loss, and increase with greater muscle mass.</span></div>
+      </section>
+      <section class="bmi-form">
+        <form action="" name="bmrForm" class="row">
+          <div class="col-12 col-sm-3 bmi-img mb-4 mb-sm-0">
+             <img src="https://upload.cc/i1/2021/12/15/zvAYGI.png" alt="" class="bmi-logo">
+          </div>
+          <div class="col-12 col-sm-9 row gx-0 gx-sm-4 row-cols-2">
+            <div class="mb-3 col">
+              <label for="" class="form-label">Gender</label>
+              <div class="btn-group" id="genderBtns">
+                <div class="text-center me-4">
+                  <input type="radio" class="btn-check" name="options" id="radioMan" value="male" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="radioMan">
+                    <img src="https://upload.cc/i1/2021/12/16/nwdPNF.png" alt="">
+                  </label>
+                  <div>Man</div>                
+                </div>
+                <div class="text-center">
+                  <input type="radio" class="btn-check" name="options" id="radioWoman" value="female" autocomplete="off" checked>
+                  <label class="btn btn-outline-primary" for="radioWoman">
+                    <img src="https://upload.cc/i1/2021/12/16/W7QjmS.png" alt="">
+                  </label>
+                  <div>Woman</div>                
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 col">
+              <label for="cmInput" class="form-label">Height</label>
+              <div class="input-group ">
+                <input type="number" class="form-control" id="BmrCmInput" placeholder="170" name="bmrheight" >
+                <span class="input-group-text">CM</span>
+              </div>
+            </div>
+            <div class="mb-3 col">
+              <label for="oldInput" class="form-label">Age</label>
+              <div class="input-group ">
+                <input type="number" class="form-control" id="BmrOldInput" placeholder="25" name="bmrage" >
+                <span class="input-group-text">years</span>
+              </div>
+            </div>
+            <div class="mb-3 col">
+              <label for="kgInput" class="form-label">Weight</label>
+              <div class="input-group ">
+                <input type="number" class="form-control" id="BmrKgInput" placeholder="70" name="bmrweight" >
+                <span class="input-group-text">KG</span>
+              </div>            
+            </div> 
+            <div class="text-center col-12">
+              <button type="" class="btn btn-bmi my-3" id="calculateBmrBtn">Calculate Now</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="bmi-result-container">
+        <div class="bmi-result-content bmr-content">
+          <div class="result-value">
+            <div class="text-center">
+              <div>BMR</div> 
+              <div class="value-text" id="yourBmr">---</div>
+              <div>KCAL</div>              
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bmr-intro-container">
+        <section class="intro-container my-5">
+          <h1 class="title">Total Daily Energy Expenditure (TDEE)</h1>
+          <div class="content">TDEE refers to the calories you burn each day through daily activities. It varies based on height, weight, muscle mass, and activity level. <span class="text-light">If you want to lose weight, your daily calorie intake should be lower than your TDEE.</span></div>
+        </section>
+       <section class="bmr-intro-list">
+         <div class="row">
+           <div class="col-12 col-sm-6 d-flex mb-5">
+             <div class="intro-icon me-3">
+               <img src="https://upload.cc/i1/2021/12/27/5A8PK0.png" alt="">
+             </div>
+             <div class="intro-content">
+               Sedentary work <br>
+               Little to no exercise <br>
+               BMR x <span class="text-light">1.2</span> = <span class="fs-4 text-warning" id="bmrVolumeXs"> --- </span>
+             </div>
+           </div>
+           <div class="col-12 col-sm-6 d-flex mb-5">
+             <div class="intro-icon me-3">
+               <img src="https://upload.cc/i1/2021/12/27/3RTYtG.png" alt="">
+             </div>
+             <div class="intro-content">
+               Light activity <br>
+               Light exercise 1–3 days/week <br>
+               BMR x <span class="text-light">1.375</span> = <span class="fs-4 text-warning"  id="bmrVolumeSm"> --- </span>
+             </div>
+           </div>
+           <div class="col-12 col-sm-6 d-flex mb-5">
+             <div class="intro-icon me-3">
+               <img src="https://upload.cc/i1/2021/12/27/PlEN29.png" alt="">
+             </div>
+             <div class="intro-content">
+               Moderately active <br>
+               Moderate exercise 3–5 days/week <br>
+               BMR x <span class="text-light">1.55</span> = <span class="fs-4 text-warning"  id="bmrVolumeMd"> --- </span>
+             </div>
+           </div>
+           <div class="col-12 col-sm-6 d-flex mb-5">
+             <div class="intro-icon me-3">
+               <img src="https://upload.cc/i1/2021/12/27/kN01AP.png" alt="">
+             </div>
+             <div class="intro-content">
+               Very active <br>
+               Hard exercise 6–7 days/week <br>
+               BMR x <span class="text-light">1.72</span> = <span class="fs-4 text-warning"  id="bmrVolumeLg"> --- </span>
+             </div>
+           </div>
+           <div class="col-12 col-sm-6 d-flex mb-5">
+             <div class="intro-icon me-3">
+               <img src="https://upload.cc/i1/2021/12/27/ap1hT3.png" alt="">
+             </div>
+             <div class="intro-content">
+               Extra active <br>
+               Very hard exercise or physical labor <br>
+               BMR x <span class="text-light">1.9</span> = <span class="fs-4 text-warning"  id="bmrVolumeXL"> --- </span>
+             </div>
+           </div>
+         </div>
+       </section>
+      </section>   
+    </div>
+  </div>
+</div>
+<footer class="footer"><span>Made in India !</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
