@@ -14,6 +14,7 @@ A modern, responsive web app to calculate:
   <img alt="License" src="https://img.shields.io/badge/License-MIT-00b894?style=for-the-badge">
 </p>
 
+
 ## ✨ Features
 
 - 🎯 BMI calculator with live categorization
