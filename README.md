@@ -78,6 +78,7 @@ Then navigate to http://localhost:3000 or http://localhost:8080 depending on the
   - Very active: BMR × 1.72
   - Extra active: BMR × 1.9
 
+
 ## 🧭 Usage Guide
 
 1. BMI Tab
