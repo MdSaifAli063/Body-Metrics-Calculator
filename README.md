@@ -102,6 +102,7 @@ Tip: Press Enter inside a form to trigger calculation.
 - Activity multipliers: edit in script.js (IDs: bmrVolumeXs, bmrVolumeSm, bmrVolumeMd, bmrVolumeLg, bmrVolumeXL)
 - BMI ranges or messages: update categorizeBMI() in script.js
 
+
 ## ♿ Accessibility
 
 - Visible focus rings on interactive elements
