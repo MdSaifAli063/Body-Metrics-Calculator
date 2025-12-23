@@ -33,6 +33,7 @@ A modern, responsive web app to calculate:
 - Vanilla CSS (custom theme) and JS
 - LocalStorage (for BMI records)
 
+
 ## 📁 Project Structure
 
 
