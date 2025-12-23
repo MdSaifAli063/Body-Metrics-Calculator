@@ -26,6 +26,7 @@ A modern, responsive web app to calculate:
 - ⌨️ Keyboard-friendly, focus-ring support
 - 🛠 No build step — just open index.html
 
+
 ## 🧱 Tech Stack
 
 - HTML5 + Bootstrap 5 (CDN)
