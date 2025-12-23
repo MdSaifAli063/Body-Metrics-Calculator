@@ -48,6 +48,7 @@ A modern, responsive web app to calculate:
 
 Then navigate to http://localhost:3000 or http://localhost:8080 depending on the tool.
 
+
 ## 🛡 Permissions/Privacy
 
 - All calculations run entirely in your browser.
