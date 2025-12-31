@@ -47,7 +47,7 @@ function updateBMIResult({ bmi, category }) {
   bmiValueEl.textContent = isFinite(bmi) ? round1(bmi).toFixed(1) : "---";
   evalEl.textContent = category ? category.message : "Result";
 
-  // Remove previous status classes and add current
+ 
   resultCard.classList.remove("light", "ideal", "heavy", "fat");
   if (category) {
     resultCard.classList.add(category.key);
