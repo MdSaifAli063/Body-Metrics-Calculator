@@ -102,7 +102,6 @@ Tip: Press Enter inside a form to trigger calculation.
 - Keyboard navigation friendly
 - Reduced motion support via prefers-reduced-motion
 
-
 ## 📷 Screenshots
 
  preview:
