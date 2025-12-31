@@ -36,7 +36,6 @@ A modern, responsive web app to calculate:
 
 . ├─ index.html # Main UI with BMI/BMR tabs ├─ style.css # Theme, layout, components └─ script.js # Calculations, state, and interactions
 
-
 ## 🚀 Getting Started
 
 - Option A: Double-click index.html to open in your browser.
