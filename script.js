@@ -53,7 +53,7 @@ function updateBMIResult({ bmi, category }) {
     resultCard.classList.add(category.key);
   }
 
-  // Subtle animation
+
   bmiValueEl.classList.remove("pulse");
   void bmiValueEl.offsetWidth; // reflow
   bmiValueEl.classList.add("pulse");
