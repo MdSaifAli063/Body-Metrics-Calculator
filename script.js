@@ -44,7 +44,6 @@ function updateBMIResult({ bmi, category }) {
   const evalEl = $("#evaluationMessage");
   const resultCard = $(".bmi-result-content");
 
-  // Update text
   bmiValueEl.textContent = isFinite(bmi) ? round1(bmi).toFixed(1) : "---";
   evalEl.textContent = category ? category.message : "Result";
 
