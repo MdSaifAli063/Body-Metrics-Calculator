@@ -108,7 +108,6 @@ Tip: Press Enter inside a form to trigger calculation.
 - ![image](https://github.com/MdSaifAli063/Body-Metrics-Calculator/blob/c74b3cd3aff95bdac4e843269bd0e642c9f132f9/Screenshot%202025-09-10%20005456.png)
 - ![image](https://github.com/MdSaifAli063/Body-Metrics-Calculator/blob/9518a8f9cbb0b1bda223ed392f1581f400752a6e/Screenshot%202025-09-10%20005630.png)
 
-
 ## 🌐 Deployment
 
 - GitHub Pages
