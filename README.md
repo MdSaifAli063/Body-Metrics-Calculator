@@ -132,7 +132,6 @@ Tip: Press Enter inside a form to trigger calculation.
 - Icons used in UI are from provided image links
 - Built with Bootstrap 5
 
-
 ## 📜 License
 
 MIT License — feel free to use, modify, and distribute with attribution.
