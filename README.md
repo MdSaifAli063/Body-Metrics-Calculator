@@ -126,7 +126,6 @@ Tip: Press Enter inside a form to trigger calculation.
 - Records not saving?
   - Check browser privacy mode; localStorage may be blocked.
 
-
 ## 🙌 Credits
 
 - UI/UX styling and interactions by the project authors
