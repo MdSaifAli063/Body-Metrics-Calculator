@@ -51,7 +51,6 @@ Then navigate to http://localhost:3000 or http://localhost:8080 depending on the
 - BMI records are stored only in your browser’s localStorage.
 - No data is sent to any server.
 
-
 ## 🧠 How It Works
 
 - BMI
