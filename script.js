@@ -1,8 +1,6 @@
 "use strict";
 
-/**
- * Utility: select helpers
- */
+
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
