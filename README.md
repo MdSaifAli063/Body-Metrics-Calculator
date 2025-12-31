@@ -117,7 +117,6 @@ Tip: Press Enter inside a form to trigger calculation.
 - Netlify/Vercel
   - Drag-and-drop or link repo, target root
 
-
 ## 🔧 Troubleshooting
 
 - Tabs not switching?
