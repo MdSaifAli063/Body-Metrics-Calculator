@@ -75,9 +75,6 @@ function saveBMIRecords(records) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
 }
 
-/**
- * Render BMI records into the DOM
- */
 function renderBMIRecords(records) {
   const list = $(".bmi-record-list ul");
   list.innerHTML = "";
