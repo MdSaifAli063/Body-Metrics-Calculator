@@ -39,9 +39,6 @@ function categorizeBMI(bmi) {
   };
 }
 
-/**
- * Update BMI result UI block
- */
 function updateBMIResult({ bmi, category }) {
   const bmiValueEl = $("#yourBmi");
   const evalEl = $("#evaluationMessage");
