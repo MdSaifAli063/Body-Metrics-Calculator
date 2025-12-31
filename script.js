@@ -8,13 +8,6 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 const round1 = (n) => Math.round(n * 10) / 10;
 const round0 = (n) => Math.round(n);
 
-/**
- * BMI categorization based on provided ranges:
- * - light: BMI < 18.5
- * - ideal: 18.5 ≤ BMI < 24
- * - heavy: 24 ≤ BMI < 27
- * - fat:   BMI ≥ 27
- */
 function categorizeBMI(bmi) {
   if (bmi < 18.5) {
     return {
