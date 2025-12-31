@@ -59,9 +59,7 @@ function updateBMIResult({ bmi, category }) {
   bmiValueEl.classList.add("pulse");
 }
 
-/**
- * LocalStorage for BMI records
- */
+
 const STORAGE_KEY = "bmiRecords.v1";
 
 function loadBMIRecords() {
