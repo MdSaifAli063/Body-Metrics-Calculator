@@ -89,7 +89,6 @@ Then navigate to http://localhost:3000 or http://localhost:8080 depending on the
 
 Tip: Press Enter inside a form to trigger calculation.
 
-
 ## 🎨 Customization
 
 - Colors, radii, shadows: tweak CSS variables at the top of style.css (e.g., --accent, --surface)
