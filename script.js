@@ -4,9 +4,7 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-/**
- * Number format helpers
- */
+
 const round1 = (n) => Math.round(n * 10) / 10;
 const round0 = (n) => Math.round(n);
 
