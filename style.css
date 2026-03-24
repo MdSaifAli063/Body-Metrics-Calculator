@@ -345,9 +345,7 @@ input  { font-family: 'Outfit', sans-serif; }
   margin-bottom: 16px;
 }
 
-/* ──────────────────────────────────────────
-   7. FORM ELEMENTS
-────────────────────────────────────────── */
+
 .field { display: flex; flex-direction: column; }
 .field-label {
   font-size: 0.8rem;
@@ -417,9 +415,6 @@ input  { font-family: 'Outfit', sans-serif; }
   min-height: 1rem;
 }
 
-/* ──────────────────────────────────────────
-   8. CTA BUTTON
-────────────────────────────────────────── */
 .cta-btn {
   width: 100%;
   margin-top: 6px;
