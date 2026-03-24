@@ -627,9 +627,6 @@ input  { font-family: 'Outfit', sans-serif; }
 }
 .cat-item.active .cat-you-chip { opacity: 1; }
 
-/* ──────────────────────────────────────────
-   10. BMR LAYOUT
-────────────────────────────────────────── */
 .bmr-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
