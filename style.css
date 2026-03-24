@@ -444,9 +444,7 @@ input  { font-family: 'Outfit', sans-serif; }
 .cta-btn:hover  { transform: translateY(-1px); filter: brightness(1.05); box-shadow: 0 10px 30px rgba(0,198,162,0.4); }
 .cta-btn:active { transform: translateY(0); }
 
-/* ──────────────────────────────────────────
-   9. BMI LAYOUT
-────────────────────────────────────────── */
+
 .bmi-layout {
   display: grid;
   grid-template-columns: 340px 1fr;
