@@ -256,9 +256,7 @@ input  { font-family: 'Outfit', sans-serif; }
   transition: background 0.3s ease;
 }
 
-/* ──────────────────────────────────────────
-   5. PANELS
-────────────────────────────────────────── */
+
 .panel { display: none; animation: panelIn 0.3s ease; }
 .panel.active { display: block; }
 
@@ -328,9 +326,6 @@ input  { font-family: 'Outfit', sans-serif; }
   background: var(--cat-obese-bg);
 }
 
-/* ──────────────────────────────────────────
-   6. CARDS
-────────────────────────────────────────── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
