@@ -13,9 +13,6 @@ const fmt = n => isFinite(n) ? r1(n).toFixed(1) : '--';
 
 const STORAGE_KEY = 'fitmetrics_bmi_v3';
 
-/* ──────────────────────────────────────────
-   STATE
-────────────────────────────────────────── */
 let unitMode       = 'metric';   // 'metric' | 'imperial'
 let selectedGender = 'female';
 
