@@ -5,9 +5,6 @@
    BMI · BMR · TDEE · History · Theme · Units
 ═══════════════════════════════════════════ */
 
-/* ──────────────────────────────────────────
-   UTILS
-────────────────────────────────────────── */
 const $   = (s, c = document) => c.querySelector(s);
 const $$  = (s, c = document) => [...c.querySelectorAll(s)];
 const r1  = n => Math.round(n * 10) / 10;
