@@ -246,7 +246,6 @@ input  { font-family: 'Outfit', sans-serif; }
 .theme-label { font-size: 0; }
 .theme-label::after { font-size: 0.88rem; }
 
-/* ── MAIN CONTENT ── */
 .content {
   flex: 1;
   overflow-y: auto;
