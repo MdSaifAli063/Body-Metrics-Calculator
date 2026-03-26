@@ -565,7 +565,6 @@ input  { font-family: 'Outfit', sans-serif; }
   padding: 0 2px;
 }
 
-/* ── CATEGORIES CARD ── */
 .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 600px) { .categories { grid-template-columns: 1fr; } }
 
