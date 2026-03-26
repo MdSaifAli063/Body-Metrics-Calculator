@@ -768,7 +768,6 @@ input  { font-family: 'Outfit', sans-serif; }
 .ref-over  { background: var(--cat-over-bg);  color: var(--cat-over-color); }
 .ref-obese { background: var(--cat-obese-bg); color: var(--cat-obese-color); }
 
-/* Empty state */
 .empty-state {
   text-align: center; padding: 56px 20px;
   color: var(--text-muted);
