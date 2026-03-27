@@ -1,14 +1,6 @@
-/* ═══════════════════════════════════════════
-   FITMETRICS — style.css
-   Outfit + JetBrains Mono · App aesthetic
-   Light / Dark modes · Vibrant color system
-═══════════════════════════════════════════ */
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ──────────────────────────────────────────
-   1. DESIGN TOKENS — DARK (default)
-────────────────────────────────────────── */
+
 :root,
 [data-theme="dark"] {
   /* App chrome */
