@@ -31,7 +31,6 @@
   --text-muted:    #4e5870;
   --text-inverted: #0c0e14;
 
-  /* ── ACCENT (teal-blue gradient) ── */
   --accent-start:  #00c6a2;   /* vivid teal  */
   --accent-end:    #4e8bff;   /* electric blue*/
   --accent-solid:  #00c6a2;
@@ -264,7 +263,6 @@ input  { font-family: 'Outfit', sans-serif; }
 .theme-label { font-size: 0; }
 .theme-label::after { font-size: 0.88rem; }
 
-/* ── MAIN CONTENT ── */
 .content {
   flex: 1;
   overflow-y: auto;
@@ -596,7 +594,6 @@ input  { font-family: 'Outfit', sans-serif; }
   padding: 0 2px;
 }
 
-/* ── CATEGORIES CARD ── */
 .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 600px) { .categories { grid-template-columns: 1fr; } }
 
@@ -802,7 +799,6 @@ input  { font-family: 'Outfit', sans-serif; }
 .ref-over  { background: var(--cat-over-bg);  color: var(--cat-over-color); }
 .ref-obese { background: var(--cat-obese-bg); color: var(--cat-obese-color); }
 
-/* Empty state */
 .empty-state {
   text-align: center; padding: 56px 20px;
   color: var(--text-muted);

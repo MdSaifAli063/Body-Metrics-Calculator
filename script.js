@@ -5,14 +5,25 @@
    BMI · BMR · TDEE · History · Theme · Units
 ═══════════════════════════════════════════ */
 
+<<<<<<< HEAD
 const $  = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const r1 = n => Math.round(n * 10) / 10;
 const r0 = n => Math.round(n);
+=======
+const $   = (s, c = document) => c.querySelector(s);
+const $$  = (s, c = document) => [...c.querySelectorAll(s)];
+const r1  = n => Math.round(n * 10) / 10;
+const r0  = n => Math.round(n);
+>>>>>>> c9c950cef8969d19c11cbcf61507acaffca10576
 const fmt = n => isFinite(n) ? r1(n).toFixed(1) : '--';
 const STORAGE_KEY = 'fitmetrics_bmi_v3';
 
+<<<<<<< HEAD
 let unitMode       = 'metric';
+=======
+let unitMode       = 'metric';   // 'metric' | 'imperial'
+>>>>>>> c9c950cef8969d19c11cbcf61507acaffca10576
 let selectedGender = 'female';
 
 /* ── THEME ── */
