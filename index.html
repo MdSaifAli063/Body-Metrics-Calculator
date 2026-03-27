@@ -10,8 +10,10 @@
 </head>
 <body>
 
+  <!-- ── APP SHELL ── -->
   <div class="app">
 
+    <!-- SIDEBAR NAV -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <div class="logo-mark">
@@ -74,8 +76,10 @@
       </div>
     </aside>
 
+    <!-- MAIN CONTENT -->
     <main class="content">
 
+      <!-- ─── BMI PANEL ─── -->
       <section class="panel active" id="panel-bmi">
         <div class="panel-header">
           <div>
@@ -89,26 +93,68 @@
         </div>
 
         <div class="bmi-layout">
-          <div class="card input-card">
-            <div class="card-label">Measurements</div>
 
-            <div class="field-row">
-              <div class="field">
-                <label class="field-label">Height</label>
-                <div class="input-group" id="ig-height">
-                  <input type="number" id="inp-height" class="app-input" placeholder="170" min="1" step="0.1" autocomplete="off" />
-                  <span class="input-badge" id="badge-height">cm</span>
-                </div>
-                <div class="field-msg" id="msg-height"></div>
+          <!-- Input card -->
+          <div class="card input-card">
+
+            <!-- Card header row -->
+            <div class="mcard-header">
+              <div class="mcard-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Measurements
               </div>
-              <div class="field">
-                <label class="field-label">Weight</label>
-                <div class="input-group" id="ig-weight">
-                  <input type="number" id="inp-weight" class="app-input" placeholder="70" min="1" step="0.1" autocomplete="off" />
-                  <span class="input-badge" id="badge-weight">kg</span>
+              <div class="mcard-hint">Drag sliders or type values</div>
+            </div>
+
+            <!-- HEIGHT field -->
+            <div class="mfield" id="mf-height">
+              <div class="mfield-top">
+                <div class="mfield-icon height-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <line x1="12" y1="20" x2="12" y2="4"/><polyline points="6 10 12 4 18 10"/>
+                    <line x1="6" y1="20" x2="18" y2="20"/>
+                  </svg>
                 </div>
-                <div class="field-msg" id="msg-weight"></div>
+                <div class="mfield-meta">
+                  <span class="mfield-label">Height</span>
+                  <span class="mfield-range" id="range-height">80 – 250</span>
+                </div>
+                <div class="mfield-value-wrap">
+                  <input type="number" id="inp-height" class="mfield-input" placeholder="170" min="1" step="0.1" autocomplete="off" />
+                  <span class="mfield-unit" id="badge-height">cm</span>
+                </div>
               </div>
+              <div class="mslider-wrap">
+                <input type="range" id="slider-height" class="mslider" min="100" max="220" step="1" value="170" />
+                <div class="mslider-fill" id="sfill-height"></div>
+              </div>
+              <div class="mfield-msg" id="msg-height"></div>
+            </div>
+
+            <div class="mfield-divider"></div>
+
+            <!-- WEIGHT field -->
+            <div class="mfield" id="mf-weight">
+              <div class="mfield-top">
+                <div class="mfield-icon weight-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <circle cx="12" cy="8" r="3"/><path d="M6.5 20h11l-1.5-8h-8L6.5 20z"/>
+                  </svg>
+                </div>
+                <div class="mfield-meta">
+                  <span class="mfield-label">Weight</span>
+                  <span class="mfield-range" id="range-weight">20 – 200</span>
+                </div>
+                <div class="mfield-value-wrap">
+                  <input type="number" id="inp-weight" class="mfield-input" placeholder="70" min="1" step="0.1" autocomplete="off" />
+                  <span class="mfield-unit" id="badge-weight">kg</span>
+                </div>
+              </div>
+              <div class="mslider-wrap">
+                <input type="range" id="slider-weight" class="mslider" min="30" max="180" step="1" value="70" />
+                <div class="mslider-fill" id="sfill-weight"></div>
+              </div>
+              <div class="mfield-msg" id="msg-weight"></div>
             </div>
 
             <button class="cta-btn" id="btn-calc-bmi">
@@ -117,6 +163,7 @@
             </button>
           </div>
 
+          <!-- Score card -->
           <div class="card score-card" id="bmi-score-card">
             <div class="score-bg-ring" id="score-ring"></div>
             <div class="score-inner">
@@ -126,7 +173,7 @@
                 <span>Enter measurements</span>
               </div>
             </div>
-
+            <!-- Gauge -->
             <div class="gauge-container">
               <div class="gauge-bar">
                 <div class="gauge-segment seg-under"></div>
@@ -183,6 +230,7 @@
         </div>
       </section>
 
+      <!-- ─── BMR PANEL ─── -->
       <section class="panel" id="panel-bmr">
         <div class="panel-header">
           <div>
@@ -250,6 +298,7 @@
             </button>
           </div>
 
+          <!-- BMR result -->
           <div class="card bmr-result-card">
             <div class="card-label">Basal Metabolic Rate</div>
             <div class="bmr-big">
@@ -263,6 +312,7 @@
             </div>
           </div>
 
+          <!-- TDEE -->
           <div class="tdee-section">
             <div class="card-label" style="margin-bottom:14px;">Total Daily Energy Expenditure</div>
             <div class="tdee-grid">
@@ -317,6 +367,7 @@
         </div>
       </section>
 
+      <!-- ─── HISTORY PANEL ─── -->
       <section class="panel" id="panel-history">
         <div class="panel-header">
           <div>
@@ -326,6 +377,7 @@
           <button class="ghost-btn" id="btn-clear">Clear all</button>
         </div>
 
+        <!-- Mini chart -->
         <div class="card chart-card" id="chart-card" style="display:none;">
           <div class="card-label">BMI Trend</div>
           <div class="chart-wrap">
@@ -339,6 +391,7 @@
           </div>
         </div>
 
+        <!-- Records list -->
         <div class="records-wrap" id="records-wrap">
           <div class="empty-state" id="empty-state">
             <div class="empty-icon">
@@ -358,6 +411,6 @@
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
