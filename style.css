@@ -60,9 +60,7 @@
   --nav-border-active: var(--accent-solid);
 }
 
-/* ──────────────────────────────────────────
-   2. DESIGN TOKENS — LIGHT
-────────────────────────────────────────── */
+
 [data-theme="light"] {
   --bg-app:        #f0f2f7;
   --bg-sidebar:    #ffffff;
