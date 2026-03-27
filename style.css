@@ -112,9 +112,7 @@
   --nav-border-active: var(--accent-solid);
 }
 
-/* ──────────────────────────────────────────
-   3. RESET & BASE
-────────────────────────────────────────── */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0; padding: 0;
