@@ -133,16 +133,13 @@ body {
 button { font-family: inherit; cursor: pointer; }
 input  { font-family: 'Outfit', sans-serif; }
 
-/* ──────────────────────────────────────────
-   4. APP SHELL — SIDEBAR + CONTENT
-────────────────────────────────────────── */
+
 .app {
   display: flex;
   height: 100dvh;
   overflow: hidden;
 }
 
-/* ── SIDEBAR ── */
 .sidebar {
   width: 220px;
   flex-shrink: 0;
