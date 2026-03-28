@@ -1,14 +1,5 @@
-/* ═══════════════════════════════════════════
-   FITMETRICS — style.css
-   Outfit + JetBrains Mono · App aesthetic
-   Light / Dark modes · Vibrant color system
-═══════════════════════════════════════════ */
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ──────────────────────────────────────────
-   1. DESIGN TOKENS — DARK (default)
-────────────────────────────────────────── */
 :root,
 [data-theme="dark"] {
   /* App chrome */
@@ -20,29 +11,25 @@
   --bg-input:      #0e1018;
   --bg-overlay:    rgba(12,14,20,0.85);
 
-  /* Borders */
   --border:        rgba(255,255,255,0.07);
   --border-focus:  rgba(94,170,255,0.55);
   --border-error:  rgba(255,90,110,0.7);
 
-  /* Text */
   --text-primary:  #edf0f7;
   --text-secondary:#8a95aa;
   --text-muted:    #4e5870;
   --text-inverted: #0c0e14;
 
-  /* ── ACCENT (teal-blue gradient) ── */
-  --accent-start:  #00c6a2;   /* vivid teal  */
-  --accent-end:    #4e8bff;   /* electric blue*/
+  --accent-start:  #00c6a2;   
+  --accent-end:    #4e8bff;   
   --accent-solid:  #00c6a2;
   --accent-bg:     rgba(0,198,162,0.1);
   --accent-border: rgba(0,198,162,0.3);
 
-  /* ── CATEGORY COLORS ── */
-  --cat-under-color:  #4e8bff;   /* blue       */
-  --cat-normal-color: #00c98f;   /* mint green */
-  --cat-over-color:   #ffb340;   /* amber      */
-  --cat-obese-color:  #ff4e6a;   /* coral red  */
+  --cat-under-color:  #4e8bff;   
+  --cat-normal-color: #00c98f;   
+  --cat-over-color:   #ffb340;  
+  --cat-obese-color:  #ff4e6a;  
 
   --cat-under-bg:     rgba(78,139,255,0.12);
   --cat-normal-bg:    rgba(0,201,143,0.12);
@@ -54,24 +41,18 @@
   --cat-over-border:  rgba(255,179,64,0.3);
   --cat-obese-border: rgba(255,78,106,0.3);
 
-  /* BMR accent */
-  --bmr-color:     #a78bfa;   /* soft violet */
+  --bmr-color:     #a78bfa;  
   --bmr-bg:        rgba(167,139,250,0.1);
 
-  /* Shadows */
   --shadow-card:   0 2px 20px rgba(0,0,0,0.4);
   --shadow-float:  0 8px 40px rgba(0,0,0,0.5);
   --shadow-glow:   0 0 40px rgba(0,198,162,0.15);
   --shadow-btn:    0 6px 24px rgba(0,198,162,0.3);
 
-  /* Sidebar nav */
   --nav-bg-active: rgba(0,198,162,0.1);
   --nav-border-active: var(--accent-solid);
 }
 
-/* ──────────────────────────────────────────
-   2. DESIGN TOKENS — LIGHT
-────────────────────────────────────────── */
 [data-theme="light"] {
   --bg-app:        #f0f2f7;
   --bg-sidebar:    #ffffff;
@@ -123,9 +104,6 @@
   --nav-border-active: var(--accent-solid);
 }
 
-/* ──────────────────────────────────────────
-   3. RESET & BASE
-────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0; padding: 0;
@@ -146,16 +124,12 @@ body {
 button { font-family: inherit; cursor: pointer; }
 input  { font-family: 'Outfit', sans-serif; }
 
-/* ──────────────────────────────────────────
-   4. APP SHELL — SIDEBAR + CONTENT
-────────────────────────────────────────── */
 .app {
   display: flex;
   height: 100dvh;
   overflow: hidden;
 }
 
-/* ── SIDEBAR ── */
 .sidebar {
   width: 220px;
   flex-shrink: 0;

@@ -1,10 +1,5 @@
 "use strict";
 
-/* ═══════════════════════════════════════════
-   FITMETRICS — app.js
-   BMI · BMR · TDEE · History · Theme · Units
-═══════════════════════════════════════════ */
-
 const $  = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const r1 = n => Math.round(n * 10) / 10;
@@ -15,7 +10,6 @@ const STORAGE_KEY = 'fitmetrics_bmi_v3';
 let unitMode       = 'metric';
 let selectedGender = 'female';
 
-/* ── THEME ── */
 const html       = document.documentElement;
 const themeBtn   = $('#themeToggle');
 const savedTheme = localStorage.getItem('fitmetrics_theme') || 'dark';
@@ -27,7 +21,6 @@ themeBtn.addEventListener('click', () => {
   localStorage.setItem('fitmetrics_theme', next);
 });
 
-/* ── TABS ── */
 $$('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
     $$('.nav-item').forEach(b => b.classList.remove('active'));
@@ -39,7 +32,6 @@ $$('.nav-item').forEach(btn => {
   });
 });
 
-/* ── UNIT SWITCHER ── */
 $$('.unit-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     $$('.unit-btn').forEach(b => b.classList.remove('active'));
@@ -52,7 +44,6 @@ $$('.unit-btn').forEach(btn => {
     $('#inp-height').placeholder   = isImp ? '67' : '170';
     $('#inp-weight').placeholder   = isImp ? '154' : '70';
 
-    // Update slider ranges & reset values
     const hSlider = $('#slider-height'), wSlider = $('#slider-weight');
     const hRange  = $('#range-height'),  wRange  = $('#range-weight');
     if (isImp) {
@@ -74,7 +65,6 @@ $$('.unit-btn').forEach(btn => {
   });
 });
 
-/* ── GENDER TOGGLE ── */
 $$('.gender-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     $$('.gender-btn').forEach(b => b.classList.remove('selected'));
@@ -83,9 +73,6 @@ $$('.gender-btn').forEach(btn => {
   });
 });
 
-/* ──────────────────────────────────────────
-   SLIDER SYNC
-────────────────────────────────────────── */
 function updateFill(fillId, val, min, max) {
   const fill = $(`#${fillId}`);
   if (!fill) return;
