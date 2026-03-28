@@ -173,7 +173,7 @@ input  { font-family: 'Outfit', sans-serif; }
   gap: 10px;
   padding: 4px 8px 20px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 .logo-mark svg {
   width: 32px; height: 32px;
@@ -352,7 +352,7 @@ input  { font-family: 'Outfit', sans-serif; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 22px;
+  padding: 14px 16px;
   box-shadow: var(--shadow-card);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 }
@@ -442,6 +442,11 @@ input  { font-family: 'Outfit', sans-serif; }
 /* ──────────────────────────────────────────
    8. CTA BUTTON
 ────────────────────────────────────────── */
+.bmi-input-card .cta-btn {
+  margin-top: auto;
+  padding-top: 11px;
+}
+
 .cta-btn {
   width: 100%;
   margin-top: 6px;
@@ -449,12 +454,12 @@ input  { font-family: 'Outfit', sans-serif; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 20px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: linear-gradient(135deg, var(--accent-start) 0%, var(--accent-end) 100%);
   color: var(--text-inverted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   box-shadow: var(--shadow-btn);
@@ -477,7 +482,9 @@ input  { font-family: 'Outfit', sans-serif; }
 .bmi-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-rows: auto auto;
+  gap: 14px;
+  align-items: stretch;
 }
 .bmi-input-card   { grid-column: 1; grid-row: 1; }
 .bmi-result-card  { grid-column: 2; grid-row: 1; }
@@ -494,7 +501,7 @@ input  { font-family: 'Outfit', sans-serif; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
 }
 .bmi-result-card::before {
   content: '';
@@ -508,30 +515,75 @@ input  { font-family: 'Outfit', sans-serif; }
 .bmi-result-card.res-over::before  { background: radial-gradient(circle at 100% 0%, var(--cat-over-bg),  transparent 55%); }
 .bmi-result-card.res-obese::before { background: radial-gradient(circle at 100% 0%, var(--cat-obese-bg), transparent 55%); }
 
-/* Top row: big score + quick stats */
-.bmi-result-top {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-}
-
-/* Score block (left side of result card) */
-.bmi-score-block {
-  position: relative;
+/* ── BMI SCORE HERO — centered big number ── */
+.bmi-score-hero {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 16px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  gap: 4px;
+  transition: border-color 0.35s;
+}
+.bmi-result-card.res-under .bmi-score-hero { border-color: var(--cat-under-border); }
+.bmi-result-card.res-normal .bmi-score-hero { border-color: var(--cat-normal-border); }
+.bmi-result-card.res-over  .bmi-score-hero { border-color: var(--cat-over-border); }
+.bmi-result-card.res-obese .bmi-score-hero { border-color: var(--cat-obese-border); }
+
+/* ── 3 stats in one horizontal row ── */
+.bmi-stats-row {
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bmi-stat-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  gap: 3px;
+  text-align: center;
+}
+.bmi-stat-divider {
+  width: 1px;
+  background: var(--border);
   flex-shrink: 0;
+  margin: 8px 0;
+}
+.bmi-stat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.bmi-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
 }
 .score-bg-ring {
   position: absolute;
-  width: 120px; height: 120px;
+  width: 130px; height: 130px;
   border-radius: 50%;
-  border: 28px solid transparent;
+  border: 32px solid transparent;
   opacity: 0;
-  top: -16px; left: -20px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   transition: border-color 0.5s, opacity 0.5s;
   pointer-events: none;
 }
@@ -541,14 +593,14 @@ input  { font-family: 'Outfit', sans-serif; }
 .score-bg-ring.ring-obese { border-color: var(--cat-obese-color); opacity: 0.12; }
 
 .score-eyebrow {
-  font-size: 0.7rem; font-weight: 700;
+  font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--text-muted);
   position: relative;
 }
 .score-value {
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -563,8 +615,8 @@ input  { font-family: 'Outfit', sans-serif; }
 
 .score-tag {
   display: inline-flex; align-items: center;
-  font-size: 0.78rem; font-weight: 600;
-  padding: 4px 12px;
+  font-size: 0.75rem; font-weight: 600;
+  padding: 3px 10px;
   border-radius: 999px;
   background: var(--bg-input);
   border: 1.5px solid var(--border);
@@ -577,48 +629,16 @@ input  { font-family: 'Outfit', sans-serif; }
 .score-tag.st-over  { background: var(--cat-over-bg); border-color: var(--cat-over-border); color: var(--cat-over-color); }
 .score-tag.st-obese { background: var(--cat-obese-bg); border-color: var(--cat-obese-border); color: var(--cat-obese-color); }
 
-/* Quick stats (right side of score block) */
-.bmi-stats {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.bmi-stat-item {
-  padding: 10px 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-.bmi-stat-sep {
-  height: 1px;
-  background: var(--border);
-  margin: 0 14px;
-}
-.bmi-stat-label {
-  font-size: 0.72rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-.bmi-stat-val {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem; font-weight: 600;
-  color: var(--text-primary);
-}
+/* stat-pill vals (defined in bmi-result-top block above) */
 
 /* BMI message */
 .bmi-message {
-  font-size: 0.82rem;
+  font-size: 0.77rem;
   color: var(--text-secondary);
   background: var(--bg-input);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 8px;
+  padding: 7px 11px;
   line-height: 1.55;
   position: relative;
   transition: all 0.3s;
@@ -629,9 +649,9 @@ input  { font-family: 'Outfit', sans-serif; }
 .bmi-message.msg-obese { border-color: var(--cat-obese-border); background: var(--cat-obese-bg); color: var(--text-primary); }
 
 /* ── GAUGE ── */
-.gauge-container { width: 100%; padding: 4px 4px 0; }
+.gauge-container { width: 100%; padding: 2px 4px 0; }
 .gauge-bar {
-  height: 10px;
+  height: 8px;
   border-radius: 999px;
   display: flex;
   overflow: visible;
@@ -651,10 +671,10 @@ input  { font-family: 'Outfit', sans-serif; }
 .gauge-needle {
   position: absolute;
   top: 50%; left: 0%;
-  width: 14px; height: 14px;
+  width: 12px; height: 12px;
   border-radius: 50%;
   background: var(--bg-card);
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4);
   transform: translate(-50%, -50%);
   transition: left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -663,10 +683,10 @@ input  { font-family: 'Outfit', sans-serif; }
 .gauge-ticks {
   display: flex;
   justify-content: space-between;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
-  margin-top: 6px;
+  margin-top: 4px;
   padding: 0 2px;
 }
 
@@ -800,7 +820,7 @@ input  { font-family: 'Outfit', sans-serif; }
   font-family: 'JetBrains Mono', monospace;
   background: var(--bg-input);
   border: 1px solid var(--border);
-  border-radius: 8px; padding: 8px 12px;
+  border-radius: 8px; padding: 6px 10px;
   margin-bottom: 16px; position: relative;
   line-height: 1.6;
 }
@@ -988,14 +1008,16 @@ input  { font-family: 'Outfit', sans-serif; }
    7b. MEASUREMENTS CARD — redesigned
 ────────────────────────────────────────── */
 .input-card {
-  padding: 20px 22px 22px;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 .mcard-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
 }
 .mcard-title {
   display: flex;
@@ -1015,8 +1037,8 @@ input  { font-family: 'Outfit', sans-serif; }
 }
 
 .mfield {
-  padding: 16px;
-  border-radius: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
   background: var(--bg-input);
   border: 1.5px solid var(--border);
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
@@ -1031,18 +1053,18 @@ input  { font-family: 'Outfit', sans-serif; }
   box-shadow: 0 0 0 3px rgba(255,90,110,0.08) !important;
 }
 
-.mfield-divider { height: 10px; }
+.mfield-divider { height: 6px; }
 
 .mfield-top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .mfield-icon {
-  width: 38px; height: 38px;
-  border-radius: 10px;
+  width: 28px; height: 28px;
+  border-radius: 7px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
@@ -1064,7 +1086,7 @@ input  { font-family: 'Outfit', sans-serif; }
   gap: 1px;
 }
 .mfield-label {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -1093,10 +1115,10 @@ input  { font-family: 'Outfit', sans-serif; }
   outline: none;
   color: var(--text-primary);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  padding: 8px 10px 8px 13px;
-  width: 82px;
+  padding: 5px 7px 5px 10px;
+  width: 68px;
   text-align: right;
   -moz-appearance: textfield;
 }
@@ -1105,7 +1127,7 @@ input  { font-family: 'Outfit', sans-serif; }
 .mfield-input::placeholder {
   color: var(--text-muted);
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 .mfield-unit {
   font-size: 0.72rem;
