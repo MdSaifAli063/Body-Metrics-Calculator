@@ -198,29 +198,56 @@ $('#btn-calc-bmi').addEventListener('click', () => {
   const bmi = wKg / (hM * hM);
   const cat = categorizeBMI(bmi);
 
-  updateBMIDisplay(bmi, cat);
+  updateBMIDisplay(bmi, cat, hCm, wKg);
   saveAndRender({ bmi, hCm, wKg, key: cat.key, label: cat.label });
 });
 
 /* ──────────────────────────────────────────
    BMI UI UPDATE
 ────────────────────────────────────────── */
-function updateBMIDisplay(bmi, cat) {
+const MESSAGES = {
+  under:  '📉 You\'re underweight. Focus on a balanced, nutrient-rich diet and consider strength training to build muscle mass.',
+  normal: '✅ Great! You\'re at a healthy weight. Keep up your current diet and exercise habits to maintain it.',
+  over:   '⚠️ You\'re slightly overweight. Small lifestyle changes — more movement and mindful eating — can make a big difference.',
+  obese:  '🚨 Your BMI indicates obesity. It\'s a good time to consult a doctor and begin a structured wellness plan.'
+};
+
+function updateBMIDisplay(bmi, cat, hCm, wKg) {
+  // Score value
   const valEl = $('#bmi-value');
   valEl.textContent = fmt(bmi);
   valEl.className   = `score-value ${cat.cssClass}`;
   bounce(valEl);
 
+  // Tag
   const tag = $('#bmi-tag');
   tag.innerHTML = `<span>${cat.label}</span>`;
   tag.className = `score-tag ${cat.tagClass}`;
 
-  $('#score-ring').className = `score-bg-ring ${cat.ringClass}`;
+  // Result card tint
+  const card = $('#bmi-score-card');
+  card.className = `card bmi-result-card res-${cat.key}`;
+
+  // Ring
+  $('#score-ring').className = `score-bg-ring ring-${cat.key}`;
+
+  // Gauge needle
   $('#gauge-needle').style.left = bmiToGaugePercent(bmi) + '%';
 
-  $$('.cat-item').forEach(el => {
-    el.classList.toggle('active', el.dataset.cat === cat.key);
-  });
+  // Quick stats
+  const hM = hCm / 100;
+  const idealLo = r1(18.5 * hM * hM), idealHi = r1(24.9 * hM * hM);
+  $('#res-height').textContent = `${r1(hCm)} cm`;
+  $('#res-weight').textContent = `${r1(wKg)} kg`;
+  $('#res-ideal').textContent  = `${idealLo}–${idealHi} kg`;
+
+  // Message
+  const msgEl = $('#bmi-message');
+  msgEl.textContent = MESSAGES[cat.key];
+  msgEl.className   = `bmi-message msg-${cat.key}`;
+
+  // Category rows
+  $$('.cat-item').forEach(el => el.classList.toggle('active', el.dataset.cat === cat.key));
 }
 
 /* ──────────────────────────────────────────
