@@ -1,6 +1,14 @@
+/* ═══════════════════════════════════════════
+   FITMETRICS — style.css
+   Outfit + JetBrains Mono · App aesthetic
+   Light / Dark modes · Vibrant color system
+═══════════════════════════════════════════ */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-
+/* ──────────────────────────────────────────
+   1. DESIGN TOKENS — DARK (default)
+────────────────────────────────────────── */
 :root,
 [data-theme="dark"] {
   /* App chrome */
@@ -23,6 +31,7 @@
   --text-muted:    #4e5870;
   --text-inverted: #0c0e14;
 
+  /* ── ACCENT (teal-blue gradient) ── */
   --accent-start:  #00c6a2;   /* vivid teal  */
   --accent-end:    #4e8bff;   /* electric blue*/
   --accent-solid:  #00c6a2;
@@ -60,7 +69,9 @@
   --nav-border-active: var(--accent-solid);
 }
 
-
+/* ──────────────────────────────────────────
+   2. DESIGN TOKENS — LIGHT
+────────────────────────────────────────── */
 [data-theme="light"] {
   --bg-app:        #f0f2f7;
   --bg-sidebar:    #ffffff;
@@ -112,7 +123,9 @@
   --nav-border-active: var(--accent-solid);
 }
 
-
+/* ──────────────────────────────────────────
+   3. RESET & BASE
+────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0; padding: 0;
@@ -133,13 +146,16 @@ body {
 button { font-family: inherit; cursor: pointer; }
 input  { font-family: 'Outfit', sans-serif; }
 
-
+/* ──────────────────────────────────────────
+   4. APP SHELL — SIDEBAR + CONTENT
+────────────────────────────────────────── */
 .app {
   display: flex;
   height: 100dvh;
   overflow: hidden;
 }
 
+/* ── SIDEBAR ── */
 .sidebar {
   width: 220px;
   flex-shrink: 0;
@@ -248,6 +264,7 @@ input  { font-family: 'Outfit', sans-serif; }
 .theme-label { font-size: 0; }
 .theme-label::after { font-size: 0.88rem; }
 
+/* ── MAIN CONTENT ── */
 .content {
   flex: 1;
   overflow-y: auto;
@@ -455,66 +472,89 @@ input  { font-family: 'Outfit', sans-serif; }
 .cta-btn:active { transform: translateY(0); }
 
 /* ──────────────────────────────────────────
-   9. BMI LAYOUT
+   9. BMI LAYOUT  (mirrors BMR 2-col pattern)
 ────────────────────────────────────────── */
 .bmi-layout {
   display: grid;
-  grid-template-columns: 340px 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
-.input-card       { grid-column: 1; grid-row: 1; }
-.score-card       { grid-column: 2; grid-row: 1; }
+.bmi-input-card   { grid-column: 1; grid-row: 1; }
+.bmi-result-card  { grid-column: 2; grid-row: 1; }
 .categories-card  { grid-column: 1 / -1; grid-row: 2; }
 
-@media (max-width: 860px) {
-  .bmi-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .score-card, .categories-card { grid-column: 1; grid-row: auto; }
+@media (max-width: 780px) {
+  .bmi-layout { grid-template-columns: 1fr; }
+  .bmi-input-card, .bmi-result-card, .categories-card { grid-column: 1; grid-row: auto; }
 }
 
-/* ── SCORE CARD ── */
-.score-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* ── BMI RESULT CARD ── */
+.bmi-result-card {
   position: relative;
   overflow: hidden;
-  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.bmi-result-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 100% 0%, var(--accent-bg), transparent 55%);
+  pointer-events: none;
+  transition: background 0.4s;
+}
+.bmi-result-card.res-under::before { background: radial-gradient(circle at 100% 0%, var(--cat-under-bg), transparent 55%); }
+.bmi-result-card.res-normal::before{ background: radial-gradient(circle at 100% 0%, var(--cat-normal-bg), transparent 55%); }
+.bmi-result-card.res-over::before  { background: radial-gradient(circle at 100% 0%, var(--cat-over-bg),  transparent 55%); }
+.bmi-result-card.res-obese::before { background: radial-gradient(circle at 100% 0%, var(--cat-obese-bg), transparent 55%); }
+
+/* Top row: big score + quick stats */
+.bmi-result-top {
+  display: flex;
+  align-items: flex-start;
   gap: 16px;
+  position: relative;
+}
+
+/* Score block (left side of result card) */
+.bmi-score-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
 }
 .score-bg-ring {
   position: absolute;
-  width: 220px; height: 220px;
+  width: 120px; height: 120px;
   border-radius: 50%;
-  border: 40px solid transparent;
-  opacity: 0.06;
+  border: 28px solid transparent;
+  opacity: 0;
+  top: -16px; left: -20px;
   transition: border-color 0.5s, opacity 0.5s;
   pointer-events: none;
 }
-.score-bg-ring.ring-under { border-color: var(--cat-under-color); opacity: 0.1; }
-.score-bg-ring.ring-normal{ border-color: var(--cat-normal-color); opacity: 0.1; }
-.score-bg-ring.ring-over  { border-color: var(--cat-over-color);  opacity: 0.1; }
-.score-bg-ring.ring-obese { border-color: var(--cat-obese-color); opacity: 0.1; }
+.score-bg-ring.ring-under { border-color: var(--cat-under-color); opacity: 0.12; }
+.score-bg-ring.ring-normal{ border-color: var(--cat-normal-color); opacity: 0.12; }
+.score-bg-ring.ring-over  { border-color: var(--cat-over-color);  opacity: 0.12; }
+.score-bg-ring.ring-obese { border-color: var(--cat-obese-color); opacity: 0.12; }
 
-.score-inner { position: relative; }
 .score-eyebrow {
-  font-size: 0.72rem; font-weight: 700;
+  font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 6px;
+  color: var(--text-muted);
+  position: relative;
 }
 .score-value {
   font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.8rem, 6vw, 4rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--text-muted);
   transition: color 0.4s;
+  position: relative;
 }
 .score-value.sv-under { color: var(--cat-under-color); }
 .score-value.sv-normal{ color: var(--cat-normal-color); }
@@ -523,19 +563,70 @@ input  { font-family: 'Outfit', sans-serif; }
 
 .score-tag {
   display: inline-flex; align-items: center;
-  margin-top: 10px;
-  font-size: 0.8rem; font-weight: 600;
-  padding: 5px 14px;
+  font-size: 0.78rem; font-weight: 600;
+  padding: 4px 12px;
   border-radius: 999px;
   background: var(--bg-input);
   border: 1.5px solid var(--border);
   color: var(--text-muted);
-  transition: all 0.4s;
+  transition: all 0.35s;
+  position: relative;
 }
 .score-tag.st-under { background: var(--cat-under-bg); border-color: var(--cat-under-border); color: var(--cat-under-color); }
 .score-tag.st-normal{ background: var(--cat-normal-bg); border-color: var(--cat-normal-border); color: var(--cat-normal-color); }
 .score-tag.st-over  { background: var(--cat-over-bg); border-color: var(--cat-over-border); color: var(--cat-over-color); }
 .score-tag.st-obese { background: var(--cat-obese-bg); border-color: var(--cat-obese-border); color: var(--cat-obese-color); }
+
+/* Quick stats (right side of score block) */
+.bmi-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bmi-stat-item {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.bmi-stat-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 0 14px;
+}
+.bmi-stat-label {
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.bmi-stat-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* BMI message */
+.bmi-message {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  line-height: 1.55;
+  position: relative;
+  transition: all 0.3s;
+}
+.bmi-message.msg-under { border-color: var(--cat-under-border); background: var(--cat-under-bg); color: var(--text-primary); }
+.bmi-message.msg-normal{ border-color: var(--cat-normal-border); background: var(--cat-normal-bg); color: var(--text-primary); }
+.bmi-message.msg-over  { border-color: var(--cat-over-border);  background: var(--cat-over-bg);  color: var(--text-primary); }
+.bmi-message.msg-obese { border-color: var(--cat-obese-border); background: var(--cat-obese-bg); color: var(--text-primary); }
 
 /* ── GAUGE ── */
 .gauge-container { width: 100%; padding: 4px 4px 0; }
@@ -579,6 +670,7 @@ input  { font-family: 'Outfit', sans-serif; }
   padding: 0 2px;
 }
 
+/* ── CATEGORIES CARD ── */
 .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 600px) { .categories { grid-template-columns: 1fr; } }
 
@@ -784,6 +876,7 @@ input  { font-family: 'Outfit', sans-serif; }
 .ref-over  { background: var(--cat-over-bg);  color: var(--cat-over-color); }
 .ref-obese { background: var(--cat-obese-bg); color: var(--cat-obese-color); }
 
+/* Empty state */
 .empty-state {
   text-align: center; padding: 56px 20px;
   color: var(--text-muted);
