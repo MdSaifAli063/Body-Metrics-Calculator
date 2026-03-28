@@ -111,9 +111,7 @@ function setupSlider(sliderId, inputId, fillId) {
 setupSlider('slider-height', 'inp-height', 'sfill-height');
 setupSlider('slider-weight', 'inp-weight', 'sfill-weight');
 
-/* ──────────────────────────────────────────
-   VALIDATION
-────────────────────────────────────────── */
+
 // BMI — uses .mfield elements
 function setBMIError(mfieldId, msgId, text) {
   $(`#${mfieldId}`)?.classList.add('error');
